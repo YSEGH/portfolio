@@ -1,0 +1,38 @@
+:root {
+  font-family: Poligon, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --red: #ff5353;
+  /*   --dark: #252629; */
+  --dark: #000;
+  --white: #fff;
+  --lightgrey: #f5f5f5;
+  --max-width: 932px;
+
+  --font-size--extra-small: 14px;
+  --font-size--small: 18px;
+  --font-size--medium: 24px;
+  --font-size--big: 28px;
+  --font-size--large: 48px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+  /*   cursor: none !important;
+ */
+}
+/* *::-webkit-scrollbar {
+  display: none;
+} */

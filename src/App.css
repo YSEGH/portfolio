@@ -1,0 +1,66 @@
+@import url("./fonts.css");
+
+.app {
+  position: relative;
+  background-color: var(--white);
+}
+
+h2 {
+  font-size: var(--font-size--large);
+  line-height: var(--font-size--large);
+  margin: 0;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 0;
+}
+
+h5 {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Colors */
+.color--red {
+  color: var(--red);
+}
+
+/* Font-style */
+.font-style--italic {
+  font-style: italic;
+}
+
+/* Font-weight */
+.font-weight--light {
+  font-weight: 200;
+}
+.font-weight--thin {
+  font-weight: 100;
+}
+
+/* Icons */
+.icon--calendar {
+  display: block;
+  width: 24px;
+  height: 24px;
+  -webkit-mask-image: url("/icons/Calendar.svg");
+  mask-image: url("/icons/Calendar.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  font-family: Poligon;
+  font-size: var(--font-size--big);
+  line-height: var(--font-size--big);
+  font-weight: 300;
+  border: 2px solid;
+  height: 80px;
+  padding: 8px 24px;
+  border-radius: 100px;
+  position: relative;
+  z-index: 100;
+}

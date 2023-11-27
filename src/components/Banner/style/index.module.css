@@ -1,0 +1,110 @@
+.banner {
+  --max-height: 400px;
+  --height: 350px;
+  --max-width: 300px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Banner button */
+.banner__button {
+  position: relative;
+  pointer-events: all;
+  transform: scale(1);
+  transform-origin: center center;
+  padding: 0;
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--max-height);
+  max-width: var(--max-width);
+  background-color: var(--dark);
+  color: var(--dark);
+  border-color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+}
+.banner__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-image: url("/assets/work-circle.svg");
+  background-size: 160px 160px;
+  width: 160px;
+  height: 160px;
+  animation: rotate 8s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.banner__button__inner {
+  height: 100px;
+  width: 100px;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner__button__inner svg {
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+}
+.banner__button__inner svg path {
+  stroke: var(--white);
+}
+/* Banner photo */
+.banner__photo {
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--max-height);
+  max-width: var(--max-width);
+}
+.banner__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Banner text */
+.banner__text {
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--max-height);
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: center;
+  color: var(--dark);
+}
+.banner__text h2 {
+  margin: 0;
+  font-family: Poligon;
+  font-size: var(--font-size--large);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: left;
+}

@@ -1,0 +1,55 @@
+.grid {
+  pointer-events: none;
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid__front {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+.grid__front__marker {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.grid__screen {
+  height: 400px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: auto 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8rem;
+}
+/* Border */
+.border {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin: auto;
+}

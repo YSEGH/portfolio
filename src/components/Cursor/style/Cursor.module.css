@@ -1,0 +1,23 @@
+.cursor__container {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 1000vh;
+}
+.cursor {
+  --scale: 1;
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  transform: translateX(var(--x)) translateY(var(--y)) scale(var(--scale));
+  z-index: 100;
+  background-color: var(--red);
+  opacity: 0.5;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  transform-origin: center center;
+}

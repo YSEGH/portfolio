@@ -1,0 +1,40 @@
+.test {
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+}
+.test button {
+  z-index: 100;
+}
+
+/* 
+.circle {
+  width: var(--square);
+  height: var(--square);
+  background: var(--bg);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.small {
+  --square: 50px;
+  --bg: red;
+  --x: 0;
+  --y: 0;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  z-index: 9999;
+  background-color: var(--red);
+  border-radius: 100%;
+}
+
+.large {
+  --square: 100px;
+  --bg: green;
+}
+ */

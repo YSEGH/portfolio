@@ -1,0 +1,10 @@
+.text__content {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  overflow: hidden;
+}
+.text__content h2 > span {
+  display: block;
+  transform: translateY(200px);
+}

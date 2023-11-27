@@ -1,0 +1,9 @@
+.button__magnetic {
+  --x: 0;
+  --y: 0;
+  transform: translateX(var(--x)) translateY(var(--y));
+}
+.focus {
+  color: white;
+  background-color: black;
+}

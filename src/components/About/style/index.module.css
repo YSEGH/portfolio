@@ -1,0 +1,12 @@
+.about {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about p {
+  margin: 0;
+  font-size: var(--font-size--large);
+  line-height: var(--font-size--large);
+}

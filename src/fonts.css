@@ -1,0 +1,113 @@
+/* FHTotal */
+@font-face {
+  font-family: FHTotal;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Thin-BF6514dd5b2d9d8.otf")
+    format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: FHTotal;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-ThinItalic-BF6514dd5b18f2e.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: FHTotal;
+  font-weight: 200;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Light-BF6514dd5b2b64b.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  font-style: italic;
+  font-weight: 200;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-LightItalic-BF6514dd5b196e7.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Regular-BF6514dd5b34b98.otf")
+    format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: FHTotal;
+  font-weight: 400;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Medium-BF6514dd5ae34c2.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  font-style: italic;
+  font-weight: 400;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-MediumItalic-BF6514dd5b43127.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-SemiBold-BF6514dd5b27c56.otf")
+    format("opentype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: FHTotal;
+  font-weight: 600;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Bold-BF6514dd5b3a369.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  font-weight: 700;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-Black-BF6514dd5b2001e.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: FHTotal;
+  font-weight: 700;
+  src: url("./fonts/FH_TotalDisplay/FHTotalDisplay-Test-BlackItalic-BF6514dd5b18743.otf")
+    format("opentype");
+  font-style: italic;
+}
+
+/* Poligon */
+@font-face {
+  font-family: Poligon;
+  src: url("./fonts/poligon/Poligon_Thin.otf") format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: Poligon;
+  font-weight: 200;
+  src: url("./fonts/poligon/Poligon_Light.otf") format("opentype");
+}
+@font-face {
+  font-family: Poligon;
+  src: url("./fonts/poligon/Poligon_Regular.otf") format("opentype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Poligon;
+  font-weight: 400;
+  src: url("./fonts/poligon/Poligon_Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: Poligon;
+  src: url("./fonts/poligon/Poligon_SemiBold.otf") format("opentype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: Poligon;
+  font-weight: 600;
+  src: url("./fonts/poligon/Poligon_Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Poligon;
+  font-weight: 700;
+  src: url("./fonts/poligon/Poligon_Extra_Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Poligon;
+  font-weight: 800;
+  src: url("./fonts/poligon/Poligon_Black.otf") format("opentype");
+}

@@ -1,0 +1,31 @@
+.map {
+  padding: 4rem 0;
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.map__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: var(--max-width);
+}
+.map__content h2 {
+  text-transform: uppercase;
+  font-family: Poligon;
+  text-align: center;
+}
+.map__content h2 span {
+  font-weight: 200;
+}
+.map__content .button__map {
+  background-color: transparent;
+  border-color: var(--red);
+  color: var(--red);
+}
