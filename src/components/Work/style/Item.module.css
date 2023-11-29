@@ -1,7 +1,7 @@
 .grid_item {
   user-select: none;
   pointer-events: all;
-  --height: 350px;
+  --height: 400px;
   --width: 300px;
   height: var(--height);
   width: var(--width);
@@ -100,13 +100,18 @@
   opacity: 1;
 }
 .item__subtitle {
+  display: block;
+  height: var(--font-size--medium);
   text-transform: uppercase;
   color: var(--red);
   margin: 0 0 0.5rem;
+
   font-size: var(--font-size--medium);
   line-height: var(--font-size--medium);
 }
 .item__title {
+  display: block;
+  height: calc(var(--font-size--large) * 2);
   font-size: var(--font-size--large);
   line-height: var(--font-size--large);
   text-transform: capitalize;
@@ -141,22 +146,6 @@
   border-color: var(--red);
   background-color: var(--red);
   color: #fff;
-}
-.button__show {
-  width: 80px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: all !important;
-  cursor: pointer;
-  color: #fff;
-  background-color: transparent;
-}
-.button__show svg {
-  width: 40px;
-  height: 40px;
-  rotate: -90deg;
 }
 
 .link__back {

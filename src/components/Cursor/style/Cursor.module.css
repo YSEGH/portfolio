@@ -15,7 +15,7 @@
   transform: translateX(var(--x)) translateY(var(--y)) scale(var(--scale));
   z-index: 100;
   background-color: var(--red);
-  opacity: 0.5;
+  opacity: 1;
   height: 3rem;
   width: 3rem;
   border-radius: 100%;

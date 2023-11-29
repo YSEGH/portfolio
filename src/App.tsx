@@ -31,11 +31,11 @@ function App() {
   return (
     <div className="app">
       <Cursor />
-      <Content title={null}>
+      <Content>
         <Test />
       </Content>
       <Banner />
-      <Content title={null}>
+      <Content>
         <Work />
       </Content>
       <Content title="What i do">

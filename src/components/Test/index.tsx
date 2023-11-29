@@ -7,12 +7,12 @@ const Test: React.FC = () => {
     <div className={style.test}>
       <ButtonMagnetic
         id="target_1"
-        title="Target 1"
+        title="1"
         callback={() => console.log("test 1")}
       />
       <ButtonMagnetic
         id="target_2"
-        title="Target 2 Target 2"
+        title="Target 2 tegrbT"
         callback={() => console.log("test 2")}
       />
     </div>

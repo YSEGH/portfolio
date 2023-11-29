@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import style from "./style/index.module.css";
 
 interface Props {
-  title: string | null;
+  title?: string;
   children: ReactNode;
 }
 

@@ -1,6 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import style from "../style/Item.module.css";
 import cx from "classnames";
+import ButtonMagnetic from "../../ButtonMagnetic";
+
+const styleBtnShow: React.CSSProperties = {
+  width: 80,
+  padding: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  color: "#fff",
+  backgroundColor: "transparent",
+  position: "relative",
+  zIndex: 101,
+};
 
 type Props = {
   element: any;
@@ -13,7 +27,6 @@ const Item: React.FC<Props> = ({ element, isSelected, callback }) => {
   const descriptionRef = useRef(null);
   const subtitleRef = useRef(null);
   const titleRef = useRef(null);
-  const moreBackButtonRef = useRef(null);
   const goToButtonRef = useRef(null);
   const detailsRef = useRef(null);
 
@@ -62,13 +75,13 @@ const Item: React.FC<Props> = ({ element, isSelected, callback }) => {
           >
             Voir
           </button>
-          <button
-            className={cx("button__show", style.button__show)}
-            ref={moreBackButtonRef}
-            data-key={element?.key}
-            onClick={onClickHandler}
+          <ButtonMagnetic
+            id={`button__show__${element.key}`}
+            callback={onClickHandler}
+            style={styleBtnShow}
           >
             <svg
+              style={{ pointerEvents: "none" }}
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -77,7 +90,7 @@ const Item: React.FC<Props> = ({ element, isSelected, callback }) => {
             >
               <path d="M18 9L12 15L6 9" stroke="white" />
             </svg>
-          </button>
+          </ButtonMagnetic>
         </div>
       </div>
     </div>
