@@ -3,6 +3,8 @@ import style from "../style/Item.module.css";
 import cx from "classnames";
 import gsap from "gsap";
 import { getTargetedPos } from "../utils";
+import ButtonMagnetic from "../../ButtonMagnetic";
+import { styleBtnGo, styleBtnShow, styleBtnShowSVG } from "./Item";
 
 type Props = {
   element: any;
@@ -37,10 +39,13 @@ const Screen: React.FC<Props> = ({ element, show, callback }) => {
         tl.current = gsap
           .timeline()
           .to(screen.current, {
-            zIndex: 10,
+            display: "block",
             opacity: 1,
           })
-          .to(".work__grid", { zIndex: 12 }, "<")
+          /*  .to(".grid_item__front", {
+            display: "none",
+            duration: 0,
+          }) */
           .to(backgroundRef.current, {
             scale: screenPos.scale + 0.2,
             duration: 0.6,
@@ -74,41 +79,17 @@ const Screen: React.FC<Props> = ({ element, show, callback }) => {
             opacity: 1,
             duration: 0.15,
             ease: "power1.inOut",
-          })
-          .to(
-            moreBackButtonRef.current,
-            {
-              x:
-                (buttonContainerRef.current! as HTMLElement).offsetWidth -
-                (moreBackButtonRef.current! as HTMLElement).offsetWidth,
-              duration: 0.3,
-              ease: "power1.inOut",
-            },
-            "<"
-          )
-          .to(moreBackButtonRef.current, {
-            borderColor: "#fff",
-            duration: 0.15,
-            ease: "power1.out",
-          })
-          .to(
-            moreBackButtonInnerRef.current,
-            {
-              y: 32,
-              duration: 0.15,
-              ease: "power1.inOut",
-            },
-            "<"
-          )
-          .to(
-            goToButtonRef.current,
+          });
+        /* .to(
+            "#button__go_to__screen",
             {
               scale: 1,
+              display: "block",
               duration: 0.15,
               ease: "power1.out",
             },
             "<"
-          );
+          ); */
       }
     }
 
@@ -154,29 +135,31 @@ const Screen: React.FC<Props> = ({ element, show, callback }) => {
           ref={buttonContainerRef}
           className={cx("button__container", style.button__container)}
         >
-          <button
-            className={cx("button__go_to", style.button__go_to)}
-            ref={goToButtonRef}
+          <ButtonMagnetic
+            id={`button__go_to__screen`}
+            callback={() => {}}
+            customClass="button__go_to"
+            style={styleBtnGo}
           >
             Voir
-          </button>
-          <button
-            className={cx("button__more_back", style.button__more_back)}
-            ref={moreBackButtonRef}
-            data-key={element?.key}
-            onClick={onClickHandler}
+          </ButtonMagnetic>
+          <ButtonMagnetic
+            id={`button__show__screen`}
+            callback={onClickHandler}
+            customClass="button__show"
+            style={styleBtnShow}
           >
-            <div
-              ref={moreBackButtonInnerRef}
-              className={cx(
-                "button__more_back__inner",
-                style.button__more_back__inner
-              )}
+            <svg
+              style={styleBtnShowSVG}
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <p className={style.link__back}>Retour</p>
-              <p className={style.link__more}>+ d'infos</p>
-            </div>
-          </button>
+              <path d="M18 9L12 15L6 9" stroke="white" />
+            </svg>
+          </ButtonMagnetic>
         </div>
       </div>
     </div>

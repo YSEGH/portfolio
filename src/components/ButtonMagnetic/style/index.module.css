@@ -6,20 +6,6 @@
   position: relative;
   padding: 0 !important;
 }
-/* 
-.button__magnetic::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  background-color: red;
-  opacity: 0.5;
-  z-index: -3;
-  height: calc(50% + 150px);
-  width: 190px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-} */
 
 .focus {
   color: white;

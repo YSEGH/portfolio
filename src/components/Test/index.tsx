@@ -9,11 +9,13 @@ const Test: React.FC = () => {
         id="target_1"
         title="1"
         callback={() => console.log("test 1")}
+        style={{ width: 300 }}
       />
       <ButtonMagnetic
         id="target_2"
         title="Target 2 tegrbT"
         callback={() => console.log("test 2")}
+        style={{ width: 300 }}
       />
     </div>
   );

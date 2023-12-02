@@ -12,11 +12,11 @@ type Lerping = {
 };
 
 type CursorPosition = {
-  client: { x: number; y: number };
-  page: { x: number; y: number };
+  x: number;
+  y: number;
 };
 
-type FocusedButton = {
+type Button = {
   el: HTMLElement;
   x: { current: number; target: number };
   y: { current: number; target: number };
@@ -26,20 +26,18 @@ export default class ButtonMagneticHandler {
   private cursorSize: number = 48;
   private cursorPosition: CursorPosition;
   private cursor: HTMLDivElement | null;
-  private focusedButton: FocusedButton | null = null;
+  private focusedButton: Button | null = null;
   private triggerArea: number;
   private targetHolder: Position | any;
   private lerpingData: Lerping | any;
   private interpolationFactor: number = 0.8;
-  private buttonList: any;
 
   constructor(cursorId: string) {
-    this.cursorPosition = {
-      client: { x: 0, y: 0 },
-      page: { x: 0, y: 0 },
-    };
+    this.cursorSize = (
+      document.querySelector("#cursor") as HTMLElement
+    ).offsetWidth;
+    this.cursorPosition = { x: 0, y: 0 };
     this.cursor = document.querySelector(cursorId);
-    this.buttonList = this.getButtonList();
     this.triggerArea = 150;
     this.targetHolder = { x: 0, y: 0 };
     this.lerpingData = {
@@ -52,41 +50,45 @@ export default class ButtonMagneticHandler {
 
   private onMouseMoveHandler = throttle((e: any) => {
     this.cursorPosition = {
-      client: { x: e.clientX, y: e.clientY },
-      page: { x: e.pageX, y: e.pageY },
+      x: window.scrollX + e.clientX - this.cursorSize / 2,
+      y: window.scrollY + e.clientY - this.cursorSize / 2,
     };
     this.update();
   }, 10);
 
   private onScrollHandler = throttle(() => {
-    this.cursorPosition.page = {
-      x: window.scrollX + this.cursorPosition.client.x,
-      y: window.scrollY + this.cursorPosition.client.y,
+    this.cursorPosition = {
+      x: window.scrollX + this.cursorPosition.x - this.cursorSize / 2,
+      y: window.scrollY + this.cursorPosition.y - this.cursorSize / 2,
     };
     this.update();
   }, 10);
 
   public update = () => {
-    let focusedButton = this.searchFocusedButton() as any;
-
+    let focusedButton = this.searchFocusedButton() as Button;
     if (focusedButton) {
-      this.focusedButton = focusedButton;
+      if (this.focusedButton?.el.id !== focusedButton.el.id) {
+        this.resetButtonPosition();
+        this.focusedButton = focusedButton;
+        this.updateMouseScale();
+      }
       this.updateCursorPositionOnButton();
       this.updateButtonPosition();
-      this.updateMouseScale();
       return;
     }
-    this.resetMouseScale();
-    this.resetButtonPosition();
-    this.updateCursorPosition();
+    if (this.focusedButton) {
+      this.resetButtonPosition();
+      this.resetMouseScale();
+    }
     this.focusedButton = null;
+    this.updateCursorPosition();
   };
 
   private updateCursorPosition = () => {
     if (this.cursor) {
       gsap.to(this.cursor, {
-        "--x": `${this.cursorPosition.page.x}px`,
-        "--y": `${this.cursorPosition.page.y}px`,
+        "--x": `${this.cursorPosition.x}px`,
+        "--y": `${this.cursorPosition.y}px`,
         ease: "power1.out",
         duration: 0.6,
       });
@@ -95,8 +97,11 @@ export default class ButtonMagneticHandler {
 
   private updateCursorPositionOnButton = () => {
     if (this.cursor && this.focusedButton) {
-      const cursorX = this.focusedButton.x.current - this.cursorSize / 2;
-      const cursorY = this.focusedButton.y.current - this.cursorSize / 2;
+      const diff = (this.focusedButton.el.offsetWidth - this.cursorSize) / 2;
+      const cursorX =
+        this.focusedButton.x.current + this.lerpingData.x.current + diff;
+      const cursorY =
+        this.focusedButton.y.current + this.lerpingData.y.current + diff;
 
       gsap.to(this.cursor, {
         "--x": `${cursorX}px`,
@@ -137,7 +142,7 @@ export default class ButtonMagneticHandler {
     if (this.cursor) {
       gsap.to(this.cursor, {
         "--scale": 1,
-        duration: 0.1,
+        duration: 0.3,
         ease: "sine.out",
       });
     }
@@ -146,9 +151,9 @@ export default class ButtonMagneticHandler {
   private updateButtonPosition = () => {
     if (this.focusedButton) {
       this.targetHolder.x =
-        (this.cursorPosition.page.x - this.focusedButton.x.target) * 0.2;
+        (this.cursorPosition.x - this.focusedButton.x.target) * 0.2;
       this.targetHolder.y =
-        (this.cursorPosition.page.y - this.focusedButton.y.target) * 0.2;
+        (this.cursorPosition.y - this.focusedButton.y.target) * 0.2;
 
       this.lerpingData.x.target = this.targetHolder.x;
       this.lerpingData.y.target = this.targetHolder.y;
@@ -179,10 +184,8 @@ export default class ButtonMagneticHandler {
   private getButtonList = () => {
     return Array.from(document.querySelectorAll(".button__magnetic")).map(
       (button: any) => {
-        const buttonX =
-          button.getBoundingClientRect().left + button.offsetWidth / 2;
-        const buttonY =
-          button.getBoundingClientRect().top + button.offsetHeight / 2;
+        const buttonX = window.scrollX + button.getBoundingClientRect().left;
+        const buttonY = window.scrollY + button.getBoundingClientRect().top;
 
         return {
           el: button,
@@ -194,11 +197,11 @@ export default class ButtonMagneticHandler {
   };
 
   private searchFocusedButton = () => {
-    const focusedButton: any = Array.from(this.buttonList).find(
+    const focusedButton: any = Array.from(this.getButtonList()).find(
       (button: any) => {
         const distanceFromMouseToCenter = this.calculateDistance(
-          this.cursorPosition.page.x,
-          this.cursorPosition.page.y,
+          this.cursorPosition.x,
+          this.cursorPosition.y,
           button.x.target,
           button.y.target
         );

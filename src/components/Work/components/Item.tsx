@@ -3,7 +3,7 @@ import style from "../style/Item.module.css";
 import cx from "classnames";
 import ButtonMagnetic from "../../ButtonMagnetic";
 
-const styleBtnShow: React.CSSProperties = {
+export const styleBtnShow: React.CSSProperties = {
   width: 80,
   padding: 0,
   display: "flex",
@@ -12,8 +12,26 @@ const styleBtnShow: React.CSSProperties = {
   cursor: "pointer",
   color: "#fff",
   backgroundColor: "transparent",
-  position: "relative",
-  zIndex: 101,
+};
+
+export const styleBtnGo: React.CSSProperties = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  transform: "scale(0)",
+  fontFamily: "Poligon",
+  fontWeight: 500,
+  borderColor: "var(--red)",
+  backgroundColor: "var(--red)",
+  color: "#fff",
+  display: "none",
+};
+
+export const styleBtnShowSVG: React.CSSProperties = {
+  transform: "rotate(-90deg)",
+  pointerEvents: "none",
+  width: 40,
+  height: 40,
 };
 
 type Props = {
@@ -21,14 +39,9 @@ type Props = {
   isSelected: boolean;
   callback: Function;
 };
+
 const Item: React.FC<Props> = ({ element, isSelected, callback }) => {
   const item = useRef(null);
-  const backgroundRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const titleRef = useRef(null);
-  const goToButtonRef = useRef(null);
-  const detailsRef = useRef(null);
 
   const onClickHandler = () => {
     callback(item.current, element);
@@ -42,46 +55,39 @@ const Item: React.FC<Props> = ({ element, isSelected, callback }) => {
     <div
       data-key={element?.key}
       ref={item}
-      className={cx(`grid_item`, style.grid_item, {
+      className={cx(`grid_item`, `grid_item__front`, style.grid_item, {
         [style.selected]: isSelected,
       })}
     >
-      <div ref={backgroundRef} className={cx(style.grid_item__background)}>
+      <div className={cx(style.grid_item__background)}>
         <div className={cx(style.grid_item__overlay)}></div>
         <div className={cx(style.grid_item__image)}>
           <img src={`${element?.imgURI}`} alt="alt" />
         </div>
       </div>
-      <div
-        ref={detailsRef}
-        className={cx(style.grid_item__details, style.item_details)}
-      >
-        <h5 ref={subtitleRef} className={cx(style.item__subtitle)}>
-          {element?.title}
-        </h5>
-        <h3 ref={titleRef} className={cx(style.item__title)}>
-          {element?.title}
-        </h3>
-        <p
-          ref={descriptionRef}
-          className={cx("item__description", style.item__description)}
-        >
+      <div className={cx(style.grid_item__details, style.item_details)}>
+        <h5 className={cx(style.item__subtitle)}>{element?.title}</h5>
+        <h3 className={cx(style.item__title)}>{element?.title}</h3>
+        <p className={cx("item__description", style.item__description)}>
           {element?.description}
         </p>
         <div className={cx("button__container", style.button__container)}>
-          <button
-            className={cx("button__go_to", style.button__go_to)}
-            ref={goToButtonRef}
+          <ButtonMagnetic
+            id={`button__go_to__${element.key}`}
+            callback={() => {}}
+            customClass="button__go_to"
+            style={styleBtnGo}
           >
             Voir
-          </button>
+          </ButtonMagnetic>
           <ButtonMagnetic
             id={`button__show__${element.key}`}
             callback={onClickHandler}
+            customClass="button__show"
             style={styleBtnShow}
           >
             <svg
-              style={{ pointerEvents: "none" }}
+              style={styleBtnShowSVG}
               width="24"
               height="24"
               viewBox="0 0 24 24"

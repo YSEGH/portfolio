@@ -1,19 +1,19 @@
 .grid_item {
   user-select: none;
   pointer-events: all;
-  --height: 400px;
+  --height: 350px;
   --width: 300px;
   height: var(--height);
   width: var(--width);
   max-height: 100vh;
   max-width: 100vw;
-  transform: scale(1);
   transform-origin: center center;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: box-shadow 0.25s linear;
+  position: relative;
+  z-index: 0;
 }
 
 /* Selected */
@@ -51,8 +51,8 @@
   transform-origin: center center;
   transition: opacity 0.2s linear;
 }
-.grid_item:not(.grid_item__back).selected .grid_item__overlay,
-.grid_item:not(.grid_item__back):hover .grid_item__overlay {
+.grid_item:not(.grid_item__screen).selected .grid_item__overlay,
+.grid_item:not(.grid_item__screen):hover .grid_item__overlay {
   opacity: 1;
 }
 /* Image */
@@ -61,6 +61,7 @@
   height: 100%;
   width: 100%;
   position: relative;
+  z-index: 0;
   transform-style: preserve-3d;
 }
 .grid_item__image img {
@@ -69,7 +70,6 @@
   object-fit: cover;
   position: absolute;
   left: 0;
-  z-index: -1;
   top: 0;
 }
 
@@ -100,22 +100,25 @@
   opacity: 1;
 }
 .item__subtitle {
+  position: relative;
   display: block;
   height: var(--font-size--medium);
   text-transform: uppercase;
   color: var(--red);
   margin: 0 0 0.5rem;
-
   font-size: var(--font-size--medium);
   line-height: var(--font-size--medium);
+  max-width: var(--width);
 }
 .item__title {
+  position: relative;
   display: block;
   height: calc(var(--font-size--large) * 2);
   font-size: var(--font-size--large);
   line-height: var(--font-size--large);
   text-transform: capitalize;
   margin: 0 0 1rem;
+  max-width: var(--width);
 }
 .item__description {
   width: calc(100% - var(--padding) * 2);
@@ -128,24 +131,13 @@
   right: 0;
   top: 0;
   bottom: 0;
-  margin: auto 0;
+  margin: 0;
 }
 .button__container {
   width: 100%;
   position: relative;
   margin-top: 0.5rem;
   display: flex;
-}
-.button__go_to {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: scale(0);
-  font-family: Poligon;
-  font-weight: 500;
-  border-color: var(--red);
-  background-color: var(--red);
-  color: #fff;
 }
 
 .link__back {

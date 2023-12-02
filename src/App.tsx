@@ -30,11 +30,10 @@ function App() {
 
   return (
     <div className="app">
-      <Cursor />
-      <Content>
+      {/*       <Content>
         <Test />
       </Content>
-      <Banner />
+      <Banner /> */}
       <Content>
         <Work />
       </Content>
@@ -53,6 +52,7 @@ function App() {
       <Content title="Contact">
         <Contact />
       </Content>
+      <Cursor />
 
       {/*  <Banner />
       <Container animation={scrollWorkHandler} id="container__work">

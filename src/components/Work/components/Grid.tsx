@@ -107,6 +107,7 @@ const Grid: React.FC = () => {
             ? "100vw"
             : "-100vw";
         },
+        clear: "all",
         duration: 0.6,
         ease: "power4.inOut",
       })
@@ -116,7 +117,7 @@ const Grid: React.FC = () => {
         duration: 0.6,
         ease: "power1.inOut",
       })
-      .to(gridScreen.current, { zIndex: 2, duration: 0 })
+      .to(gridScreen.current, { display: "flex", duration: 0 })
       .call(() => setShow(true));
   };
 

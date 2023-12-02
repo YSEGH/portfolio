@@ -4,6 +4,7 @@ import { displayWorkHandler } from "../animations";
 import cx from "classnames";
 import gsap from "gsap";
 import ButtonMagnetic from "../ButtonMagnetic";
+import Item from "../Work/components/Item";
 
 const Banner: React.FC = () => {
   const style = {

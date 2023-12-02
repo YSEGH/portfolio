@@ -8,6 +8,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --red: #ff5353;
+  --red-opacity: #ff535380;
   /*   --dark: #252629; */
   --dark: #000;
   --white: #fff;

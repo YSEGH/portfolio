@@ -3,7 +3,6 @@
   height: auto;
   width: 100%;
   overflow-x: hidden;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,15 +26,14 @@
 }
 
 .grid__screen {
+  display: none;
   height: 400px;
   width: 100vw;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
   margin: auto 0;
-  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 8rem;
